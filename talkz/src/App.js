@@ -1,12 +1,39 @@
 import './index.css';
-import {ChakraProvider,  chakra, Box,Image,Flex,useColorModeValue, Link, Skeleton, SkeletonCircle, SkeletonText, Stack} from '@chakra-ui/react';
+import {ChakraProvider,  chakra,Image,Flex,useColorModeValue, Link, Skeleton, Heading} from '@chakra-ui/react';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import { Box } from '@chakra-ui/layout';
+import axios from 'axios';
+
+const queryClient = new QueryClient()
 
 function App() {
   return (
+
     <ChakraProvider>
+      <QueryClientProvider client={queryClient}>
       <div className="App">
       <header class="flex-none relative z-50 text-sm leading-6 font-medium ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5 bg-white">
-  <nav aria-label="Global" class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+            <Nav />
+      </header>
+  <body>
+    <p class="p-3">Recent posts</p>
+
+    <section class="grid grid-rows-3 grid-flow-col">
+      <Cards />
+      <Cards />
+    </section>
+
+  </body>
+    </div>
+    </QueryClientProvider>
+    </ChakraProvider>
+  );
+}
+
+
+function Nav() {
+  return (
+    <nav aria-label="Global" class="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center  flex-wrap sm:flex-nowrap  ">
       <a href="/components" class="flex-none text-gray-900">
         <span class="sr-only">Tailwind UI</span>
@@ -26,22 +53,9 @@ function App() {
       </div>
           </div>
   </nav>
-  </header>
-
-  <body>
-    <p class="p-3">Recent posts</p>
-
-    <section class="grid grid-rows-3 grid-flow-col">
-      <Cards />
-      <Cards />
-    </section>
-
-
-  </body>
-    </div>
-    </ChakraProvider>
   );
 }
+
 
 function Cards(){
   return (

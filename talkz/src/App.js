@@ -29,10 +29,16 @@ function App() {
   </header>
 
   <body>
-    <section class="p-3">
-      Recent posts
+    <p class="p-3">Recent posts</p>
+
+    <section class="grid grid-rows-3 grid-flow-col">
+      <>
+      <Cards />
+      <Cards />
+      </>
     </section>
-    <Cards />
+
+
   </body>
     </div>
     </ChakraProvider>
@@ -131,7 +137,5 @@ function Cards(){
     </Flex>
   );
 };
-
-
 
 export default App;

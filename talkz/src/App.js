@@ -8,7 +8,6 @@ const queryClient = new QueryClient()
 
 function App() {
   return (
-
     <ChakraProvider>
       <QueryClientProvider client={queryClient}>
       <div className="App">
@@ -19,7 +18,6 @@ function App() {
     <p class="p-3">Recent posts</p>
 
     <section class="grid grid-rows-3 grid-flow-col">
-      <Cards />
       <Cards />
     </section>
 

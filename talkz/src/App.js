@@ -1,5 +1,5 @@
 import './index.css';
-import {ChakraProvider,  chakra, Box,Image,Flex,useColorModeValue, Link,} from '@chakra-ui/react';
+import {ChakraProvider,  chakra, Box,Image,Flex,useColorModeValue, Link, Skeleton, SkeletonCircle, SkeletonText, Stack} from '@chakra-ui/react';
 
 function App() {
   return (
@@ -32,10 +32,8 @@ function App() {
     <p class="p-3">Recent posts</p>
 
     <section class="grid grid-rows-3 grid-flow-col">
-      <>
       <Cards />
       <Cards />
-      </>
     </section>
 
 

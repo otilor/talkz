@@ -1,2 +1,0 @@
-# talkz
-News application

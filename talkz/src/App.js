@@ -49,7 +49,7 @@ function Cards(){
   return (
     <Flex
       bg={useColorModeValue("#F9FAFB", "gray.600")}
-      p={50}
+      p={10}
       w="full"
       alignItems="center"
       justifyContent="center"

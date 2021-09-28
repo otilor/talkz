@@ -1,15 +1,10 @@
 import './index.css';
-import {ChakraProvider,  chakra,Image,Flex,useColorModeValue, Link, Skeleton, Heading} from '@chakra-ui/react';
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import { Box } from '@chakra-ui/layout';
+import {ChakraProvider,  chakra,Image,Flex,useColorModeValue, Link, Box} from '@chakra-ui/react';
 import axios from 'axios';
-
-const queryClient = new QueryClient()
 
 function App() {
   return (
     <ChakraProvider>
-      <QueryClientProvider client={queryClient}>
       <div className="App">
       <header class="flex-none relative z-50 text-sm leading-6 font-medium ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5 bg-white">
             <Nav />
@@ -23,7 +18,6 @@ function App() {
 
   </body>
     </div>
-    </QueryClientProvider>
     </ChakraProvider>
   );
 }

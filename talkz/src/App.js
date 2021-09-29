@@ -119,9 +119,11 @@ function Cards(props){
 
         <Box mt={2}>
           <Link
+            isExternal
             fontSize="2xl"
             color={useColorModeValue("gray.700", "white")}
             fontWeight="700"
+            href={props.article.url}
             _hover={{
               color: useColorModeValue("gray.600", "gray.200"),
               textDecor: "underline",

@@ -35,7 +35,7 @@ function App() {
       </header>
       <body class="grid-flow-row">
         <section>
-        <h1 class="pl-3 text-center">Recent posts</h1>
+        <h1 class="pl-3 text-center text-xl">Recent posts</h1>
           <News />
         </section>
       </body>

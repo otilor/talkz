@@ -1,27 +1,50 @@
 import './index.css';
-import {ChakraProvider,  chakra,Image,Flex,useColorModeValue, Link, Box} from '@chakra-ui/react';
+import {ChakraProvider, chakra,Image,Flex,useColorModeValue, Link, Box} from '@chakra-ui/react';
 import axios from 'axios';
+import {QueryClient, QueryClientProvider, useQuery} from 'react-query';
+const queryClient = new QueryClient();
 
-function App() {
+
+function News() {
+  const {isLoading, isError, data, error} = useQuery('movies', fetchMovies);
+
+  if (error) return 'An error has occured: ' + error.message;
+
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : (
+    <div>
+      {data.articles.map((article) => (
+        <div className="card">
+          <div className="card-content">
+            <Cards article={article} />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function App() {  
   return (
     <ChakraProvider>
+    <QueryClientProvider client={queryClient}>
       <div className="App">
       <header class="flex-none relative z-50 text-sm leading-6 font-medium ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5 bg-white">
             <Nav />
       </header>
-  <body>
-    <p class="p-3">Recent posts</p>
-
-    <section class="grid grid-rows-3 grid-flow-col">
-      <Cards />
-    </section>
-
-  </body>
+      <body>
+        <p class="p-3">Recent posts</p>
+        <section class="grid grid-rows-3 grid-flow-col">
+          <News />
+        </section>
+        
+      </body>
     </div>
+    </QueryClientProvider>
     </ChakraProvider>
-  );
+  )
 }
-
 
 function Nav() {
   return (
@@ -48,8 +71,13 @@ function Nav() {
   );
 }
 
+function fetchMovies({ pageParam=1 }) {
+  return axios(`https://newsapi.org/v2/top-headlines?country=us&apiKey=b88aa75a680d4e95b7ce077e98b28704`).then(
+    (result) => result.data,
+  );
+}
 
-function Cards(){
+function Cards(props){
   return (
     <Flex
       bg={useColorModeValue("#F9FAFB", "gray.600")}
@@ -98,13 +126,10 @@ function Cards(){
               textDecor: "underline",
             }}
           >
-            Accessibility tools for designers and developers
+            {props.article.title}
           </Link>
           <chakra.p mt={2} color={useColorModeValue("gray.600", "gray.300")}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
-            expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos
-            enim reprehenderit nisi, accusamus delectus nihil quis facere in
-            modi ratione libero!
+            {props.article.description}
           </chakra.p>
         </Box>
 

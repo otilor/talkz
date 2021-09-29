@@ -33,12 +33,11 @@ function App() {
       <header class="flex-none relative z-50 text-sm leading-6 font-medium ring-1 ring-gray-900 ring-opacity-5 shadow-sm py-5 bg-white">
             <Nav />
       </header>
-      <body>
-        <p class="p-3">Recent posts</p>
-        <section class="grid grid-rows-3 grid-flow-col">
+      <body class="grid-flow-row">
+        <section>
+        <h1 class="pl-3 text-center">Recent posts</h1>
           <News />
         </section>
-        
       </body>
     </div>
     </QueryClientProvider>

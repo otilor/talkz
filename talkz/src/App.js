@@ -1,5 +1,5 @@
 import './index.css';
-import {ChakraProvider, chakra,Image,Flex,useColorModeValue, Link, Box} from '@chakra-ui/react';
+import {ChakraProvider, chakra,Image,Flex,useColorModeValue, Link, Box, Text} from '@chakra-ui/react';
 import axios from 'axios';
 import {QueryClient, QueryClientProvider, useQuery} from 'react-query';
 const queryClient = new QueryClient();
@@ -35,7 +35,9 @@ function App() {
       </header>
       <body class="grid-flow-row">
         <section>
-        <h1 class="pl-3 text-center text-xl">Recent posts</h1>
+        <Text color="gray.500" class="text-xl text-center">
+          Recent posts
+        </Text>
           <News />
         </section>
       </body>
@@ -141,16 +143,6 @@ function Cards(props){
           </Link>
 
           <Flex alignItems="center">
-            <Image
-              mx={4}
-              w={10}
-              h={10}
-              rounded="full"
-              fit="cover"
-              display={{ base: "none", sm: "block" }}
-              src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=40&q=80"
-              alt="avatar"
-            />
             <Link
               color={useColorModeValue("gray.700", "gray.200")}
               fontWeight="700"

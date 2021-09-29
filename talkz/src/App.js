@@ -148,7 +148,7 @@ function Cards(props){
               fontWeight="700"
               cursor="pointer"
             >
-              {props.article.author}
+              {props.article.source.name}
             </Link>
           </Flex>
         </Flex>

@@ -101,7 +101,7 @@ function Cards(props){
             fontSize="sm"
             color={useColorModeValue("gray.600", "gray.400")}
           >
-            Mar 10, 2019
+            {props.article.publishedAt}
           </chakra.span>
           <Link
             px={3}

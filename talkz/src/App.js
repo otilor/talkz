@@ -101,7 +101,7 @@ function Cards(props){
             fontSize="sm"
             color={useColorModeValue("gray.600", "gray.400")}
           >
-            {props.article.publishedAt}
+            {new Date(props.article.publishedAt).toLocaleDateString()}
           </chakra.span>
           <Link
             px={3}

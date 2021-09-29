@@ -156,7 +156,7 @@ function Cards(props){
               fontWeight="700"
               cursor="pointer"
             >
-              Khatab wedaa
+              {props.article.author}
             </Link>
           </Flex>
         </Flex>

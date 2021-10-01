@@ -68,7 +68,7 @@ function fetchMovies({ pageParam=1 }) {
               
             >
               {props.article.title}
-            </Link>
+            </Link> 
             <chakra.p mt={2} color={useColorModeValue("gray.600", "gray.300")}>
               {props.article.description}
             </chakra.p>

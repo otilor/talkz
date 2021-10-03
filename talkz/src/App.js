@@ -1,10 +1,8 @@
+import { Box, chakra, ChakraProvider, extendTheme, Link, Stack, useColorModeValue } from '@chakra-ui/react';
+import { Link as ReachLink, Router } from '@reach/router';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import DisplaySpecificNews from './DisplaySpecificNew';
 import './index.css';
-import News from './News';
-import {QueryClient, QueryClientProvider, useQuery} from 'react-query';
-import {ChakraProvider, chakra,Image,Flex,useColorModeValue, Link, Box, Text, Stack} from '@chakra-ui/react';
-import { Router, Link as ReachLink } from '@reach/router';
-import Home from './Home';
-import { extendTheme } from "@chakra-ui/react"
 import ShowNews from './ShowNews';
 // 2. Extend the theme to include custom colors, fonts, etc
 const colors = {
@@ -33,7 +31,8 @@ function App() {
       </header>
       <Router>
         <KuttyHero path="/"/>
-        <ShowNews path="/show-news" />
+        <ShowNews exact path="/news" />
+        <DisplaySpecificNews path="/show-news"/>
       </Router>
       </div>
     </QueryClientProvider>
@@ -52,7 +51,6 @@ const KuttyHero = () => {
           border="solid 1px transparent"
         >
           <Box
-            mt={{ base: 10 }}
             mx="auto"
             maxW={{ base: "7xl" }}
             px={{ base: 4, sm: 6, lg: 8 }}
@@ -112,7 +110,7 @@ const KuttyHero = () => {
                     px={{ base: 8, md: 10 }}
                     py={{ base: 3, md: 4 }}
                     cursor="pointer"
-                    to="/show-news"
+                    to="/news"
                   >
                     Get started
                   </Link>

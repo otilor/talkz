@@ -8,7 +8,7 @@ import Home from './Home';
 const queryClient = new QueryClient();
 
 function fetchMovies({ pageParam=1 }) {
-    return axios(`https://newsapi.org/v2/top-headlines?country=us&apiKey=b88aa75a680d4e95b7ce077e98b28704`).then(
+    return axios(`https://gnews.io/api/v4/search?q=example&token=d8ca205b7d08cd02d0fc267a018105f7`).then(
       (result) => result.data,
     );
   }
@@ -48,7 +48,8 @@ function fetchMovies({ pageParam=1 }) {
               fontWeight="700"
               rounded="md"
               _hover={{ bg: "gray.500" }}
-              to="/show-news"
+              to="#"
+              state={{ article: props.article }}
             >
               Design
             </Link>
@@ -64,8 +65,8 @@ function fetchMovies({ pageParam=1 }) {
                 color: useColorModeValue("gray.600", "gray.200"),
                 textDecor: "underline",
               }}
-              to="show-news"
-              
+              to={`/show-news`}
+              state={{ article: props.article, fromFeed:true }}
             >
               {props.article.title}
             </Link> 
@@ -79,7 +80,7 @@ function fetchMovies({ pageParam=1 }) {
               as={ReachLink}
               color={useColorModeValue("brand.600", "brand.400")}
               _hover={{ textDecor: "underline" }}
-              to="show-news"
+              to="/show-news"
             >
               Read more
             </Link>
@@ -97,14 +98,14 @@ function fetchMovies({ pageParam=1 }) {
             </Flex>
           </Flex>
         </Box>
-      </Flex>    
+      </Flex>  
     );
   
-    render(
+    render( 
       <Router>
         <Home path="/show-news" />
       </Router>
-      )
+      );
   }
 function News() {
     const {isLoading, isError, data, error} = useQuery('movies', fetchMovies);

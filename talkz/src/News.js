@@ -57,7 +57,7 @@ function fetchMovies({ pageParam=1 }) {
   
           <Box mt={2}>
             <Link
-              as={ReachLink}
+              isExternal
               fontSize="2xl"
               color={useColorModeValue("gray.700", "white")}
               fontWeight="700"
@@ -65,7 +65,7 @@ function fetchMovies({ pageParam=1 }) {
                 color: useColorModeValue("gray.600", "gray.200"),
                 textDecor: "underline",
               }}
-              to={`/show-news`}
+              href={props.article.url}
               state={{ article: props.article, fromFeed:true }}
             >
               {props.article.title}

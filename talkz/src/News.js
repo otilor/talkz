@@ -77,6 +77,7 @@ function fetchMovies({ pageParam=1 }) {
   
           <Flex justifyContent="space-between" alignItems="center" mt={4}>
             <Link
+              isExternal
               color={useColorModeValue("brand.600", "brand.400")}
               _hover={{ textDecor: "underline" }}
               href={props.article.url}
@@ -86,11 +87,9 @@ function fetchMovies({ pageParam=1 }) {
   
             <Flex alignItems="center">
               <Link
-                as={ReachLink}
                 color={useColorModeValue("gray.700", "gray.200")}
                 fontWeight="700"
                 cursor="pointer"
-                to="show-news"
               >
                 {props.article.source.name}
               </Link>

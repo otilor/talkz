@@ -77,10 +77,9 @@ function fetchMovies({ pageParam=1 }) {
   
           <Flex justifyContent="space-between" alignItems="center" mt={4}>
             <Link
-              as={ReachLink}
               color={useColorModeValue("brand.600", "brand.400")}
               _hover={{ textDecor: "underline" }}
-              to="/show-news"
+              href={props.article.url}
             >
               Read more
             </Link>
